@@ -50,10 +50,10 @@ pages:
     title: Example Home
   Objetivos.md:
     title: Objetivos
-CasosDeUsos.md:
-  title: Casos de Uso y Actores
-Seguridad.md:
-  title:Seguridad
+  CasosDeUsos.md:
+    title: Casos de Uso y Actores
+  Seguridad.md:
+    title:Seguridad
 #   implementation.xml:
 #   examples.xml:
 #     title: Examples Overview
