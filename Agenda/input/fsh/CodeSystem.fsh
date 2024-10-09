@@ -748,3 +748,14 @@ Description: "Codigos de las prestaciones"
 * #116 "TOMA DE RADIOGRAFIA"
 * #117 "VISITA DOMICILIARIA INTEGRAL"
 * #118 "VISITAS CON FINES DE TRATAMIENTOS Y/O PROCEDIMIENTOS EN DOMICILIO"
+
+CodeSystem: CSCategotias
+Id: CSCategotias
+Title: "CS Prestaciones"
+Description: "Codigos de las prestaciones"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = true
+
+* #1 "Urgencia" 
+* #2 "Consulta"

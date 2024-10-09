@@ -24,3 +24,12 @@ Description: "Prestaciones"
 * ^experimental = false
 
 * include codes from system CSPrestaciones
+
+ValueSet: VSCategorias
+Id: VSCategorias
+Title: "VS Prestaciones"
+Description: "Prestaciones"
+* ^status = #active
+* ^experimental = false
+
+* include codes from system CSCategotias

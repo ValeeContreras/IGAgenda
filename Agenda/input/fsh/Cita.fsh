@@ -78,7 +78,7 @@ Description: "Aca esta el ejemplo de la cita médica paciente 2"
 
 * participant[paciente].actor = Reference(Patient/EjemploPaciente2)
 * participant[paciente].status = #accepted
-* participant[prestador].actor = Reference(Practitioner/EjemploPrestador2)
+* participant[prestador].actor = Reference(Practitioner/EjemploPrestador1)
 * participant[prestador].status = #accepted
 
 * extension[ApellidoServicio].valueString = "Comentario de la cita"

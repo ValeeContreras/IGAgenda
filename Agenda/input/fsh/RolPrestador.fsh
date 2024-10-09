@@ -12,9 +12,6 @@ Description: "Este es el perfil del rol del prestador"
 * organization only Reference(Organization)
 * organization ^short = "Nombre de la Organización"
 
-* healthcareService 1..*
-* healthcareService only Reference(HealthcareService)
-* healthcareService ^short = "Servicio del prestador que realizara la cita medica"
 
 Instance: EjemploRolPrestador
 InstanceOf: RolPrestador
@@ -24,4 +21,3 @@ Description: "Aca esta el ejemplo del rol prestador"
 
 * practitioner = Reference(Practitioner/EjemploPrestador1)
 * organization = Reference(Organization/EjemploOrganizacion)
-* healthcareService = Reference (HealthcareService/EjemploServicioDeSalud)

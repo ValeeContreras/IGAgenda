@@ -4,9 +4,6 @@ Id: SolicitudServicio
 Title: "Perfil de la Solicitud del Servicio"
 Description: "Este es el perfil de la Solicitud del Servicio"
 
-* extension contains Prestaciones named prestaciones 0..1 MS
-  * ^short = "Prestación que solicita el paciente." 
-
 * status 1..1
   * ^short = "Estado de la solicitud de servicio."
 * status from http://hl7.org/fhir/ValueSet/request-status
@@ -14,6 +11,11 @@ Description: "Este es el perfil de la Solicitud del Servicio"
 * intent 1..1 
   * ^short = "Intención de la solicitud del servicio."
 * intent from http://hl7.org/fhir/ValueSet/request-intent 
+
+
+* category ..1 MS
+* category from VSCategorias (required)
+* category ^short = "Modalidad de atención"
 
 * priority 1..1
   * ^short = "Indica con qué rapidez se debe atender la ServiceRequest con respecto a otras solicitudes."
@@ -26,6 +28,10 @@ Description: "Este es el perfil de la Solicitud del Servicio"
 * authoredOn 1..1
   * ^short = "Fecha y hora de la solicitud."
 
+* reasonCode 0..1
+  * ^short = "Prestación que solicita el paciente."
+* reasonCode from VSPrestaciones (required)
+
 Instance: EjemploSolicitudServicio1
 InstanceOf: SolicitudServicio
 Usage: #example
@@ -34,10 +40,12 @@ Description: "Ejemplo Solicitud Servicio 1"
 
 * status = #active
 * intent = #order
+//* category = #1
 * priority = #routine
 * subject = Reference(Patient/EjemploPaciente1)
 * authoredOn = "2024-07-20T12:00:00-03:00"
-* extension[prestaciones].valueCode = #18
+//* reasonCode = #18
+
 
 Instance: EjemploSolicitudServicio2
 InstanceOf: SolicitudServicio
@@ -47,7 +55,9 @@ Description: "Ejemplo Solicitud Servicio 2"
 
 * status = #active
 * intent = #order
+//* category = #1
 * priority = #routine
 * subject = Reference(Patient/EjemploPaciente2)
 * authoredOn = "2024-07-20T12:00:00-03:00"
-* extension[prestaciones].valueCode = #21
+//* reasonCode = #21
+

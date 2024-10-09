@@ -1,15 +1,17 @@
 Profile: Paciente
-Parent: Patient 
-Title: "Perfil del Paciente"
-Description: "Este Perfil del paciente ha sido desarrollado para cubrir las necesidades de Agenda para APS."
+Parent: CorePacienteCl
+Id: Paciente
+Title: "Paciente"
+Description: "Perfil del paciente"
 
-* name 1..*
-  * ^short = "Nombre asociado al paciente." 
-  * family 1..1
-    * ^short = "Primer Apellido del paciente"
-    * extension contains http://hl7.org/fhir/StructureDefinition/humanname-mothers-family named SegundoApellido 0..1
-   
-* identifier 1..1 
+* name 1..1 MS
+* name.given 1..* MS
+* name.family ^short = "1er Apellido Paciente"
+* name.family.extension contains https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido named SegundoApellido 0..1 MS
+* name.family.extension[SegundoApellido] ^short = "2do Apellido Paciente"
+
+
+* identifier 1..1 MS
 * identifier ^short = "Listados de Id de Paciente. De poseer una CI con RUN vigente, este DEBE ser ingresado"
 * identifier ^definition = "Este es el listado de Identificaciones de un paciente. Se procura como R2 el RUN, pero en caso de no existir ese identificador se debe ocupar otro nacional u otro otorgado por país extranjero"
 * identifier ^comment = "En caso de que el paciente posea una CI con número RUN válido, este debe ser ingresado como identificador, independiente de que tenga otros identificadores, los cuales también pueden ser ingresados. La identificación implica el ingreso del tipo de documento, el país de origen de ese documento y ev valor del identificador"
@@ -34,14 +36,13 @@ Description: "Este Perfil del paciente ha sido desarrollado para cubrir las nece
 * identifier.type.coding.code MS
 * identifier.type.coding.code ^short = "Código de Tipo de Documento"
 * identifier.type.coding.code ^definition = "Código de Tipo de Documento"
-* identifier.type.coding.display MS
+* identifier.type.coding.display 1..1 MS
 * identifier.type.coding.display ^short = "Glosa del Código Documento"
 * identifier.type.coding.display ^definition = "Glosa del Código Documento"
-* identifier.value ^short = "Número o valor de id"
+* identifier.value ^short = "Número o valor de identificación"
 * identifier.value ^definition = "Número o valor de identificación"
 
 * birthDate 1..1
-  * ^short = "La fecha de nacimiento del individuo. En el formato (DD-MM-AAAA)." 
 
 * extension contains Edad named edad 0..1 MS
   * ^short = "Edad del paciente" 
@@ -49,26 +50,27 @@ Description: "Este Perfil del paciente ha sido desarrollado para cubrir las nece
 * extension contains Prevision named prevision 1..1 MS
   * ^short = "Previsión paciente" 
 
+
 Instance: EjemploPaciente1
 InstanceOf: Paciente
 Usage: #example
-Title: "Ejemplo del perfil del paciente 1"
-Description: "Ejemplo del paciente 1."
-* name.family = "Valentina Daniela"
-* name.given = "Contreras"
-* identifier.value = "20706399-1"
+Title: "Ejemplo Paciente"
+Description: "Ejemplo del perfil del paciente"
+* name.given = "Valentina Daniela"
+* name.family = "Contreras"
+* identifier.value = "20.706.399-1"
 * birthDate = "2001-02-10"
-* extension[edad].valueInteger = 23
+* extension[Edad].valueInteger = 23
 * extension[prevision].valueCode = #01
 
 Instance: EjemploPaciente2
 InstanceOf: Paciente
 Usage: #example
-Title: "Ejemplo del perfil del paciente 2"
-Description: "Ejemplo del paciente 2."
-* name.family = "Maria Camila"
-* name.given = "Ospina"
-* identifier.value = "25435396-5"
-* birthDate = "1999-04-03"
-* extension[edad].valueInteger = 25
+Title: "Ejemplo Paciente"
+Description: "Ejemplo del perfil del paciente"
+* name.given = "Maria Camila"
+* name.family = "Ospina"
+* identifier.value = "25.634.739-0"
+* birthDate = "1999-04-12"
+* extension[Edad].valueInteger = 25
 * extension[prevision].valueCode = #01
